@@ -1,3 +1,33 @@
+void Get_MPUdata(){
+  IMU.readSensor();
+  // display the data
+  Serial.print("AccelX: ");
+  Serial.print(IMU.getAccelX_mss(),6);
+  Serial.print("  ");
+  Serial.print("AccelY: ");  
+  Serial.print(IMU.getAccelY_mss(),6);
+  Serial.print("  ");
+  Serial.print("AccelZ: ");  
+  Serial.println(IMU.getAccelZ_mss(),6);
+  
+  Serial.print("GyroX: ");
+  Serial.print(IMU.getGyroX_rads(),6);
+  Serial.print("  ");
+  Serial.print("GyroY: ");  
+  Serial.print(IMU.getGyroY_rads(),6);
+  Serial.print("  ");
+  Serial.print("GyroZ: ");  
+  Serial.println(IMU.getGyroZ_rads(),6);
+
+  Serial.print("MagX: ");  
+  Serial.print(IMU.getMagX_uT(),6);
+  Serial.print("  ");  
+  Serial.print("MagY: ");
+  Serial.print(IMU.getMagY_uT(),6);
+  Serial.print("  ");
+  Serial.print("MagZ: ");  
+  Serial.println(IMU.getMagZ_uT(),6);
+}
 void Get_Compass_Reading() {
 
   Vector norm = compass.readNormalize();
