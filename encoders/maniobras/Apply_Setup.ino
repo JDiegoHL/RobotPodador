@@ -1,8 +1,13 @@
 void EncoderInit()
 {
-  Direction = true;//default -> Forward  
-  pinMode(encoder0pinB,INPUT);  
-  attachInterrupt(0, wheelSpeed, CHANGE);//int.0 
+  DirectionR = true;
+  DirectionL = true;
+  pinMode(encoder0pinAR,INPUT); 
+  pinMode(encoder0pinBR,INPUT); 
+  pinMode(encoder0pinAL,INPUT); 
+  pinMode(encoder0pinBL,INPUT);  
+  attachInterrupt(0, wheelSpeedR, CHANGE);//int.0 
+  attachInterrupt(4, wheelSpeedL, CHANGE);
 }
 void Setup_Compass() {
   if (Compass_Activate == 1) {

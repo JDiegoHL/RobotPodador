@@ -1,9 +1,13 @@
 void Encoder_Sensor()
 {
-  Serial.print("Pulso: ");
-  Serial.print(duration);
-  duration = 0;
-  delay(100);
+  Serial.print(F("PulsoR: "));
+  Serial.print(durationR);
+  Serial.print("|");
+  Serial.print(F("PulsoL: "));
+  Serial.print(durationL);
+  durationR = 0;
+  durationL = 0;
+  //delay(100);
   Serial.print("|");
 }
 // Infornation to be printed to the Mower LCD screen

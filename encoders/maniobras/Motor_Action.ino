@@ -1,7 +1,11 @@
 void Motor_Action_Go_Full_Speed()     {
       analogWrite(ENAPin, PWM_MaxSpeed_RH);                       
       analogWrite(ENBPin, PWM_MaxSpeed_LH);                       
-      Serial.print(F("Wheel:FULL|"));
+      
+      if(durationR== 0)Serial.print(F("Wheel:Motor Der atascado|"));
+      else Serial.print(F("Wheel:FULL|"));
+      if(durationL== 0)Serial.print(F("Wheel:Motor Izq atascado|"));
+      else Serial.print(F("Wheel:FULL|"));
       }
 
 void Motor_Action_GoFullSpeed_Out_Garage()     {

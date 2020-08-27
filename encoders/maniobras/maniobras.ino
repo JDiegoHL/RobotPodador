@@ -1,3 +1,5 @@
+#include <HID.h>
+
 #include <Arduino.h>
 #include <Wire.h>
 
@@ -8,11 +10,21 @@ LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
 DFRobot_QMC5883 compass;
 
 //Encoders
-const byte encoder0pinA = 2;//A pin -> the interrupt pin 2
-const byte encoder0pinB = 3;//B pin -> the digital pin 4
-byte encoder0PinALast;
-int duration;//the number of the pulses
-boolean Direction;//the rotation direction 
+const byte encoder0pinAR = 2;
+const byte encoder0pinBR = 3;
+
+const byte encoder0pinAL = 18;
+const byte encoder0pinBL = 19;
+byte encoder0PinALastR;
+byte encoder0PinALastL;
+int durationR;
+int durationL;
+
+int durationAnt;
+int Deltaduration;
+
+boolean DirectionR;
+boolean DirectionL;
 
 //
 
@@ -102,6 +114,7 @@ long duration1 = 0;
 
 void setup() {
   Serial.begin(115200);
+  //Serial2.begin(1200);
   EncoderInit();
   Setup_Relays();
   Setup_Motor_Pins();
